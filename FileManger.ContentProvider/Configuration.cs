@@ -2,6 +2,6 @@
 {
     public class Configuration
     {
-        public const string ServerPath = @"\\localhost\Share";
+        public const string ServerPath = @"\\localhost\Shared";
     }
 }
