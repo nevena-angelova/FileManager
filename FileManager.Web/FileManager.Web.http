@@ -1,0 +1,6 @@
+@FileManager.Web_HostAddress = http://localhost:5133
+
+GET {{FileManager.Web_HostAddress}}/swagger/
+Accept: application/json
+
+###
