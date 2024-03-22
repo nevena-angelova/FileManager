@@ -15,7 +15,7 @@ namespace FileManager.Web.Controllers
             _provider = provider;
         }
 
-        [HttpPost]
+        [HttpPost("Store")]
         public async Task<IActionResult> Store(IFormFile file)
         {
             var result = await _provider.StoreAsync(new FileName(file.FileName), new StreamInfo { Stream = file.OpenReadStream() }, default);
@@ -26,7 +26,7 @@ namespace FileManager.Web.Controllers
             return Ok("File uploaded successfully.");
         }
 
-        [HttpGet]
+        [HttpGet("Exists")]
         public async Task<IActionResult> Exists(string fileName)
         {
             var result = await _provider.ExistsAsync(new FileName(fileName), default);
@@ -51,7 +51,7 @@ namespace FileManager.Web.Controllers
             return File(result.ResultObject.ToArray(), "application/octet-stream", fileName);
         }
 
-        [HttpDelete]
+        [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(string fileName)
         {
             var result = await _provider.DeleteAsync(new FileName(fileName), default);
